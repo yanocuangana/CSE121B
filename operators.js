@@ -3,6 +3,21 @@ let shipHealth = 3;
 let shipAmmo = 3;
 let targetHealth = 3;
 
+function isHit() {
+  return Math.random() > 0.5;
+}
+
+function shipCanFire() {
+  return shipAmmo > 0 && shipHealth > 0;
+}
+function isDestroyed(health) {
+  return health <= 0;
+}
+function reloadShip() {
+  shipHealth--;
+  shipAmmo += 3;
+}
+
 function fireShip() {
   if (shipCanFire()) {
     shipAmmo--;
@@ -30,3 +45,5 @@ function encounter() {
     }
   }
 }
+
+encounter();
